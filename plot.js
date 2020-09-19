@@ -17,6 +17,8 @@ d3.json("data/data.json").then((incomingData) => {
   // Use the map method with the arrow function to return all the filtered movie metascores.
   var ratings = filteredMovies.map(movies => movies.metascore);
 
+  var imdbRating = filteredMovies.map(movies=>movies.imdbRating);
+
   // Check your filtered metascores.
   console.log(ratings);
 
@@ -24,8 +26,12 @@ d3.json("data/data.json").then((incomingData) => {
   var trace = {
     x: titles,
     y: ratings,
-    type: "bar"
+    type: "bar",
+    marker: {color:"#9E8FF0"},
+    name:"rating",
+    text:imdbRating
   };
+
 
   // Create the data array for our plot
   var data = [trace];
